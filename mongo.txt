@@ -1,0 +1,20 @@
+0. Create a collection named orders
+db.createCollection('orders')
+
+1. Insert at least 3 documents that represent an order. 
+IMPORTANT: See section below for fields. 
+Order dates should be: 2017-02-03, 2017-04-04, 2017-01-02
+
+db.orders.insert({orderDate: new Date('2017-01-02'), orderTotal: 50, lineItems:[{unitPrice: 50, quantity: 1, productName: "lamp"}]})
+
+2. Find all orders and make them look pretty.
+
+db.orders.find().pretty()
+
+3. Find all orders with an orderDate that is after 1/31/2017.
+
+db.orders.find({orderDate:{ $gte: new ISODate ('2017-01-31T00:00:00Z')}});
+
+4. Change the orderTotal from 2/3/2017 to 63 dollars 
+(you do NOT have to ensure the lineItems' unitPrice * quantity add up to the orderTotal)
+
